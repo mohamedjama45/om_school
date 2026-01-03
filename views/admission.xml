@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+
+     <record id="admission_tree" model="ir.ui.view">
+       <field name="name">admission.tree</field>
+       <field name="model">school.admission</field>
+       <field name="arch" type="xml">
+           <tree>
+
+                           <field name="name"/>
+                           <field name="age"/>
+                           <field name="gender"/>
+                           <field name="phone"/>
+
+           </tree>
+       </field>
+   </record>
+
+
+
+   <record id="admission_form" model="ir.ui.view">
+       <field name="name">admission.form</field>
+       <field name="model">school.admission</field>
+       <field name="arch" type="xml">
+           <form>
+               <sheet>
+                   <group>
+                       <group>
+                           <field name="name"/>
+                           <field name="date_of_birth"/>
+                           <field name="age"/>
+                       </group>
+                       <group>
+                           <field name="gender"/>
+                           <field name="phone"/>
+                       </group>
+                   </group>
+               </sheet>
+           </form>
+       </field>
+   </record>
+
+
+    <record id="admin_action" model="ir.actions.act_window">
+        <field name="name">Admission Page</field>
+        <field name="type">ir.actions.act_window</field>
+         <field name="res_model">school.admission</field>
+         <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+
+    <menuitem
+            id="admission_root"
+            name="Admissions"
+            parent="school_root"
+            action="admin_action"
+            sequence='1'
+    />
+
+</odoo>
