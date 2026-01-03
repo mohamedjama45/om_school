@@ -22,7 +22,7 @@ class Admission(models.Model):
             if rec.date_of_birth:
                 rec.age = now.year - rec.date_of_birth.year
             else:
-                rec.age = 1
+                rec.age = 0
 
 
 
