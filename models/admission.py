@@ -25,17 +25,7 @@ class Admission(models.Model):
                 rec.age = 1
 
 
-    @api.depends('hours_worked','rate_per_hour','bonus','penalty','max_hours')
-    def _compute_salary(self):
-        for rec in self:
-            if rec.hours_worked and rec.rate_per_hour:
-               if rec.hours_worked >= rec.max_hours:
-                   rec.salary = (rec.max_hours * rec.rate_per_hour) + (rec.bonus or 0) -  (rec.penalty or 0)
-               else:
-                    rec.salary = (rec.hours_worked * rec.rate_per_hour) + (rec.bonus or 0) -  (rec.penalty or 0)
 
-            else:
-                rec.salary = 0
 
 
 
